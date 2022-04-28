@@ -1,0 +1,20 @@
+{
+  "name": "curso-api-rest-javascript-practico",
+  "version": "1.0.0",
+  "description": "Curso Práctico de consumo de API REST de Platzi con Javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosoyeseoscar/curso-api-rest-javascript-practico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nosoyeseoscar/curso-api-rest-javascript-practico/issues"
+  },
+  "homepage": "https://github.com/nosoyeseoscar/curso-api-rest-javascript-practico#readme"
+}
