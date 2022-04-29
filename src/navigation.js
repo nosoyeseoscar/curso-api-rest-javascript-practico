@@ -1,5 +1,5 @@
 searchFormBtn.addEventListener('click', () => {
-    location.hash = "#search="
+    location.hash = "#search=" + searchFormInput.value
 })
 
 trendingBtn.addEventListener('click', () => {
@@ -17,6 +17,8 @@ window.addEventListener('hashchange', navigator, false)
 
 function homePage() {
     console.log('Home!!');
+
+
 
     headerSection.classList.remove('header-container--long')
     headerSection.style.background = ''
@@ -84,13 +86,16 @@ function searchPage() {
     arrowBtn.classList.remove('inactive')
     arrowBtn.classList.remove('header-arrow--white')
     headerTitle.classList.add('inactive')
-    headerCategoryTitle.classList.remove('inactive')
+    headerCategoryTitle.classList.add('inactive')
     searchForm.classList.remove('inactive')
 
     trendingPreviewSection.classList.add('inactive')
     categoriesPreviewSection.classList.add('inactive')
     genericSection.classList.remove('inactive')
     movieDetailSection.classList.add('inactive')
+
+    const [_, query] = location.hash.split('=')
+    getMoviesbySearch(query)
 }
 
 function trendsPage() {
@@ -125,6 +130,6 @@ function navigator() {
         homePage();
         //console.log('Home')
     }
-
-    //location.hash
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
