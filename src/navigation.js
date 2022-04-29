@@ -13,6 +13,8 @@ arrowBtn.addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
 
+
+
 function homePage() {
     console.log('Home!!');
 
@@ -34,6 +36,7 @@ function homePage() {
 }
 
 function categoriesPage() {
+    window.scrollTo(0, 0)
     console.log('categories!!');
 
     headerSection.classList.remove('header-container--long')
@@ -48,6 +51,12 @@ function categoriesPage() {
     categoriesPreviewSection.classList.add('inactive')
     genericSection.classList.remove('inactive')
     movieDetailSection.classList.add('inactive')
+
+    const [_, categoryData] = location.hash.split('=')
+    const [categoryId, categoryName] = categoryData.split('-')
+
+    getMoviesByCategory(categoryId);
+    headerCategoryTitle.textContent = categoryName
 }
 
 function movieDetailsPage() {
