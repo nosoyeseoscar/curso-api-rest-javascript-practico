@@ -99,6 +99,15 @@ async function getTrendinMovies() {
     createMovies(movies, genericSection)
 }
 
+async function getRelatedMoviesId(id) {
+    const { data } = await api(`movie/${id}/recommendations`)
+
+    const relatedMovies = data.results
+
+    createMovies(relatedMovies, relatedMoviesContainer)
+
+}
+
 async function getMovieById(id) {
     const { data: movie } = await api(`movie/${id}`)
 
@@ -117,4 +126,5 @@ async function getMovieById(id) {
     movieDetailScore.innerHTML = movie.vote_average
 
     createCategories(movie.genres, movieDetailCategoriesList)
+    getRelatedMoviesId(id)
 }
