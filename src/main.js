@@ -10,6 +10,21 @@ const api = axios.create({
 })
 
 //Utils
+
+function createObserver() {
+    return new IntersectionObserver((elements) => {
+        elements.forEach(element => {
+            if (element.isIntersecting)
+                element.target.setAttribute(
+                    'src',
+                    element.target.dataset.img
+                )
+        })
+    })
+}
+
+let observer = createObserver()
+
 function createMovies(movies, container) {
     container.innerHTML = ''
 
@@ -24,12 +39,14 @@ function createMovies(movies, container) {
         movieImg.classList.add('movie-img')
         movieImg.setAttribute('alt', movie.title)
         movieImg.setAttribute(
-            'src',
+            'data-img',
             'https://image.tmdb.org/t/p/w300/' + movie.poster_path
         )
         movieContainer.appendChild(movieImg)
         container.appendChild(movieContainer)
+        observer.observe(movieImg)
     });
+
 }
 
 function createCategories(categories, container) {
@@ -57,6 +74,8 @@ function createCategories(categories, container) {
 async function getTrendinMoviesPreview() {
     const { data } = await api('trending/movie/day')
     const movies = data.results
+
+    console.log(movies)
 
     createMovies(movies, trendingMoviesPreviewList)
 }

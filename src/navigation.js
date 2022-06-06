@@ -122,8 +122,11 @@ function trendsPage() {
     getTrendinMovies()
 }
 
+
+
 function navigator() {
     console.log({ location });
+
     if (location.hash.startsWith('#trends')) {
         trendsPage()
     } else if (location.hash.startsWith('#search=')) {
@@ -135,6 +138,10 @@ function navigator() {
     }
     else {
         homePage();
+        /*  target = document.querySelector("#trendingPreview-movieList")
+         console.log("target: ", target) */
+
+        //observer.observe(target)
         //console.log('Home')
     }
     document.body.scrollTop = 0;
