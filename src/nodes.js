@@ -4,6 +4,7 @@ const trendingPreviewSection = document.querySelector('#trendingPreview');
 const categoriesPreviewSection = document.querySelector('#categoriesPreview');
 const genericSection = document.querySelector('#genericList');
 const movieDetailSection = document.querySelector('#movieDetail');
+const likedMoviesSection = document.querySelector('#liked')
 
 // Lists & Containers
 const searchForm = document.querySelector('#searchForm');
@@ -11,6 +12,8 @@ const trendingMoviesPreviewList = document.querySelector('.trendingPreview-movie
 const categoriesPreviewList = document.querySelector('.categoriesPreview-list');
 const movieDetailCategoriesList = document.querySelector('#movieDetail .categories-list');
 const relatedMoviesContainer = document.querySelector('.relatedMovies-scrollContainer');
+const likedMoviesListArticle = document.querySelector('.liked-movieList');
+
 
 // Elements
 const headerTitle = document.querySelector('.header-title');
@@ -20,8 +23,15 @@ const headerCategoryTitle = document.querySelector('.header-title--categoryView'
 const searchFormInput = document.querySelector('#searchForm input');
 const searchFormBtn = document.querySelector('#searchBtn');
 
-const trendingBtn = document.querySelector('.trendingPreview-btn');
+const trendingBtn = document.querySelector('.trendingPreview-btn') //translate
 
 const movieDetailTitle = document.querySelector('.movieDetail-title');
 const movieDetailDescription = document.querySelector('.movieDetail-description');
 const movieDetailScore = document.querySelector('.movieDetail-score');
+
+//Elements to traslate
+const trendsTitle = document.querySelector('trendingPreview-title')
+//----trendingBtn
+const categoriesTitle = document.querySelector('categoriesPreview-title')
+const likedTitle = document.querySelector('liked-title')
+
