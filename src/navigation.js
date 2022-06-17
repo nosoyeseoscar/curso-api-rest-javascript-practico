@@ -16,8 +16,8 @@ arrowBtn.addEventListener('click', () => {
     //location.hash = "#home"
 })
 
-window.addEventListener('DOMContentLoaded', navigator, false)
-window.addEventListener('hashchange', navigator, false)
+window.addEventListener('DOMContentLoaded', navigatorUrl, false)
+window.addEventListener('hashchange', navigatorUrl, false)
 window.addEventListener('scroll', infiniteScroll, false)
 
 function homePage() {
@@ -144,8 +144,7 @@ function trendsPage() {
 }
 
 
-
-function navigator() {
+function navigatorUrl() {
     /*     console.log({ location });
      */
     if (infiniteScroll) {
