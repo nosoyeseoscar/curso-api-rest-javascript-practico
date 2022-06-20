@@ -1,12 +1,15 @@
 //DATA
+let language = navigator.language
+
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {
         'Content-Type': 'application/json;charset=utf-8',
+
     },
     params: {
         'api_key': API_KEY,
-        'languaje': navigator.language || "es",
+        'language': language,
     }
 
 })
@@ -134,6 +137,7 @@ async function getTrendinMoviesPreview() {
 async function getCategoriesPreview() {
     const { data } = await api('genre/movie/list')
     const categories = data.genres
+    console.log(categories);
 
     createCategories(categories, categoriesPreviewList)
 }

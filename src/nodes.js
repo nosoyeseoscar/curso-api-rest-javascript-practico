@@ -5,6 +5,8 @@ const categoriesPreviewSection = document.querySelector('#categoriesPreview');
 const genericSection = document.querySelector('#genericList');
 const movieDetailSection = document.querySelector('#movieDetail');
 const likedMoviesSection = document.querySelector('#liked')
+const lenguageSection = document.querySelector('.section-lenguages')
+
 
 // Lists & Containers
 const searchForm = document.querySelector('#searchForm');
@@ -30,8 +32,10 @@ const movieDetailDescription = document.querySelector('.movieDetail-description'
 const movieDetailScore = document.querySelector('.movieDetail-score');
 
 //Elements to traslate
-const trendsTitle = document.querySelector('trendingPreview-title')
-//----trendingBtn
-const categoriesTitle = document.querySelector('categoriesPreview-title')
-const likedTitle = document.querySelector('liked-title')
+const trendsTitle = document.querySelector('.trendingPreview-title')
+const trendingPreviewBtn = document.querySelector('.trendingPreview-btn')
+const categoriesTitle = document.querySelector('.categoriesPreview-title')
+const likedTitle = document.querySelector('.liked-title')
 
+const mexFlag = document.getElementById("mex-flag")
+const usFlag = document.getElementById("us-flag")

@@ -253,6 +253,23 @@ footer {
     border-bottom-right-radius: 8px;
 }
 
+.section-lenguages {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.lenguage-flag {
+    width: 40px;
+    height: auto;
+    margin: 5px;
+
+}
+
+.lenguage-flag--selected {
+    border: 5px solid #AA83C8;
+    border-radius: 5px;
+}
 
 /* Trending */
 .trendingPreview-header,

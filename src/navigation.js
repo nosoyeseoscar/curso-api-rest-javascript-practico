@@ -1,6 +1,8 @@
 let page = 1
 let maxPage
 let infiniteScroll
+//
+
 
 searchFormBtn.addEventListener('click', () => {
     console.log("Valor del input", searchFormInput.value);
@@ -16,13 +18,26 @@ arrowBtn.addEventListener('click', () => {
     //location.hash = "#home"
 })
 
+usFlag.addEventListener('click', () => {
+    language = 'us-EN'
+    setLenguage()
+    translate()
+    getCategoriesPreview()
+})
+
+mexFlag.addEventListener('click', () => {
+    language = 'es-ES'
+    setLenguage()
+    translate()
+    getCategoriesPreview()
+})
+
 window.addEventListener('DOMContentLoaded', navigatorUrl, false)
 window.addEventListener('hashchange', navigatorUrl, false)
 window.addEventListener('scroll', infiniteScroll, false)
 
 function homePage() {
     console.log('Home!!');
-    console.log(navigation.languaje);
 
     headerSection.classList.remove('header-container--long')
     headerSection.style.background = ''
@@ -31,6 +46,7 @@ function homePage() {
     headerTitle.classList.remove('inactive')
     headerCategoryTitle.classList.add('inactive')
     searchForm.classList.remove('inactive')
+    lenguageSection.classList.remove('inactive')
 
     trendingPreviewSection.classList.remove('inactive')
     likedMoviesSection.classList.remove('inactive')
@@ -55,6 +71,7 @@ function categoriesPage() {
     headerTitle.classList.add('inactive')
     headerCategoryTitle.classList.remove('inactive')
     searchForm.classList.add('inactive')
+    lenguageSection.classList.add('inactive')
 
     trendingPreviewSection.classList.add('inactive')
     likedMoviesSection.classList.add('inactive')
@@ -81,6 +98,7 @@ function movieDetailsPage() {
     headerTitle.classList.add('inactive')
     headerCategoryTitle.classList.add('inactive')
     searchForm.classList.add('inactive')
+    lenguageSection.classList.add('inactive')
 
     trendingPreviewSection.classList.add('inactive')
     likedMoviesSection.classList.add('inactive')
@@ -102,6 +120,7 @@ function searchPage() {
     headerTitle.classList.add('inactive')
     headerCategoryTitle.classList.add('inactive')
     searchForm.classList.remove('inactive')
+    lenguageSection.classList.add('inactive')
 
     trendingPreviewSection.classList.add('inactive')
     likedMoviesSection.classList.add('inactive')
@@ -128,14 +147,13 @@ function trendsPage() {
     headerTitle.classList.add('inactive')
     headerCategoryTitle.classList.remove('inactive')
     searchForm.classList.add('inactive')
+    lenguageSection.classList.add('inactive')
 
     trendingPreviewSection.classList.add('inactive')
     likedMoviesSection.classList.add('inactive')
     categoriesPreviewSection.classList.add('inactive')
     genericSection.classList.remove('inactive')
     movieDetailSection.classList.add('inactive')
-    //translate
-    headerCategoryTitle.innerHTML = 'Tendencias'
 
     getTrendinMovies()
 
@@ -143,10 +161,38 @@ function trendsPage() {
 
 }
 
+function translate() {
+    if (language === 'us-EN') {
+        trendsTitle.textContent = 'Trends'
+        trendingPreviewBtn.textContent = 'More'
+        categoriesTitle.textContent = 'Categiries'
+        likedTitle.textContent = 'Favorite Movies'
+    } else {
+        trendsTitle.textContent = 'Tendencias'
+        trendingPreviewBtn.textContent = 'Ver más'
+        categoriesTitle.textContent = 'Categirías'
+        likedTitle.textContent = 'Peliculas favoritas'
+    }
+}
+
+function setLenguage() {
+    console.log('cambio el lenguaje a:', language);
+    if (language === "es-ES") {
+        mexFlag.classList.add('lenguage-flag--selected')
+        usFlag.classList.remove('lenguage-flag--selected')
+    } if (language === "us-EN") {
+        mexFlag.classList.remove('lenguage-flag--selected')
+        usFlag.classList.add('lenguage-flag--selected')
+    } else {
+        mexFlag.classList.add('lenguage-flag--selected')
+        usFlag.classList.remove('lenguage-flag--selected')
+    }
+    //homePage()
+}
 
 function navigatorUrl() {
-    /*     console.log({ location });
-     */
+    setLenguage(language)
+
     if (infiniteScroll) {
         //console.log("remuevo infiniteScroll: ", infiniteScroll);
         window.removeEventListener('scroll', infiniteScroll, { passive: false })
@@ -177,3 +223,5 @@ function navigatorUrl() {
         window.addEventListener('scroll', infiniteScroll, { passive: false })
     }
 }
+
+
